@@ -18,7 +18,7 @@ public class PromedioService {
         double n2 = Double.parseDouble(nota2);
         double n3 = Double.parseDouble(nota3);
 
-        double promedio = (n1 + n2 + n3) / 2;
+        double promedio = (n1 + n2 + n3) / 3;
 
         String estado = clasificar(promedio);
 
@@ -48,11 +48,21 @@ public class PromedioService {
     }
 
     private String clasificar(double promedio) {
-        if (promedio >= 4) {
-            return "Aprobado";
-        } else {
-            return "Desaprobado";
+        switch (promedio) {
+            case < 6:
+                return "DESAPROBADO";
+                break;
+            case  <=7: 
+                return "APROBADO";
+                break;
+            case  <=9: 
+                return "MUY BIEN";
+                break;
+            default:
+                return "EXCELENTE";
+                break;
         }
+    
     }
 
     public List<Alumno> listarHistorial() {
